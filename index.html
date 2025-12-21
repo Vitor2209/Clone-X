@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Media</title>
+  <link rel="icon" href="images/icons_white/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="stylesheets/general.css" />
+  <link rel="stylesheet" href="stylesheets/index.css" />
+</head>
+
+<body>
+  <main>
+    <header class="header flex flex-align-center flex-justify-sp-bt">
+      <div class="header-left flex flex-align-center">
+        <button class="hamburger" id="openDrawer" aria-label="Open menu">
+          ☰
+        </button>
+
+        <a href="#" class="left-container flex flex-align-center flex-justify-sp-ar" aria-label="Go to home"
+          data-route="home" id="brandHome">
+          <img src="images/icons_white/main_icon.png" alt="Twitter Icon" class="main-icon" />
+          <h1 class="main-title">Twitter</h1>
+        </a>
+      </div>
+
+      <div class="right-container flex flex-align-center">
+        <button class="icon-top" data-route="messages" aria-label="Messages">
+          <img src="images/icons_white/messagae.png" alt="Message" class="right-side-img" />
+          <div class="hov-text">Messages</div>
+        </button>
+
+        <button class="icon-top" data-route="notifications" aria-label="Notifications">
+          <img src="images/icons_white/notif.png" alt="Notifications" class="right-side-img" />
+          <div class="hov-text">Notifications</div>
+          <span class="badge" id="notifBadge" hidden>0</span>
+        </button>
+
+        <button class="icon-top" data-route="profile" aria-label="Profile">
+          <img src="images/profile-img/profile.jpg" alt="User profile" class="right-side-img radius-50"
+            id="topAvatar" />
+          <div class="hov-text" id="topName">Asif Khan</div>
+        </button>
+      </div>
+    </header>
+
+    <section class="main grid">
+      <!-- LEFT -->
+      <div class="left-col">
+        <nav class="nav-links flex column" id="nav">
+          <a href="#" class="nav-link current flex flex-align-center" data-route="home">
+            <img class="link-img" src="images/icons_white/home_icon.png" alt="Home icon" />
+            <span class="link-text">Home</span>
+          </a>
+
+          <a href="#" class="nav-link flex flex-align-center" data-route="profile">
+            <img class="link-img" src="images/icons_white/profile_icon.png" alt="Profile icon" />
+            <span class="link-text">Profile</span>
+          </a>
+
+          <a href="#" class="nav-link flex flex-align-center" data-route="search">
+            <img class="link-img" src="images/icons_white/search_icon.png" alt="Search icon" />
+            <span class="link-text">Search</span>
+          </a>
+
+          <a href="#" class="nav-link flex flex-align-center" data-route="settings">
+            <img class="link-img" src="images/icons_white/setting_icon.png" alt="Settings icon" />
+            <span class="link-text">Settings</span>
+          </a>
+
+          <a href="#" class="nav-link flex flex-align-center" data-route="history">
+            <img class="link-img" src="images/icons_white/history_icon.png" alt="History icon" />
+            <span class="link-text">History</span>
+          </a>
+
+          <a href="#" class="nav-link flex flex-align-center" data-route="messages">
+            <span class="link-text">Messages</span>
+          </a>
+
+          <a href="#" class="nav-link flex flex-align-center" data-route="notifications">
+            <span class="link-text">Notifications</span>
+          </a>
+
+          <button class="post-btn flex-al-cen-jus-cen" id="openPost">
+            <span class="tweet-text">Post</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="tweet-icon" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </button>
+        </nav>
+      </div>
+
+      <!-- MID -->
+      <div class="mid-col" id="app">
+        <!-- HOME VIEW -->
+        <section class="view active" id="view-home" data-view="home">
+          <div class="feed-top">
+            <div class="feed-title">Home</div>
+
+            <div class="feed-tabs" role="tablist" aria-label="Feed tabs">
+              <button class="tab active" data-tab="for-you" role="tab" aria-selected="true">For you</button>
+              <button class="tab" data-tab="following" role="tab" aria-selected="false">Following</button>
+            </div>
+
+            <!-- Inline Composer -->
+            <div class="inline-composer" id="inlineComposer">
+              <img class="inline-avatar" src="images/profile-img/profile.jpg" alt="your avatar" id="inlineAvatar" />
+              <div class="inline-main">
+                <textarea id="inline-caption" class="inline-text" maxlength="280"
+                  placeholder="What’s happening?"></textarea>
+
+                <div class="inline-preview">
+                  <img id="inline-img-preview" alt="preview" />
+                  <video id="inline-video-preview" controls controlsList="nodownload"></video>
+                </div>
+
+                <div class="inline-bottom">
+                  <div class="inline-actions">
+                    <label class="icon-btn" for="inline-img" title="Add image" aria-label="Add image">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M19 3H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3ZM4 6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8.6l-3.2-3.2a1 1 0 0 0-1.4 0L12 14.8 9.6 12.4a1 1 0 0 0-1.4 0L4 16.6V6Zm1 15a1 1 0 0 1-1-1v-.6l4.9-4.9 2.4 2.4a1 1 0 0 0 1.4 0l3.7-3.7 3.6 3.6V20a1 1 0 0 1-1 1H5Z" />
+                      </svg>
+                    </label>
+
+                    <label class="icon-btn" for="inline-video" title="Add video" aria-label="Add video">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M4 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1.1l4.3 2.5A1 1 0 0 0 23 17.5v-11a1 1 0 0 0-1.7-.7L17 8.3V8a3 3 0 0 0-3-3H4Zm12 3v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1Zm5-1.3v9.6l-4-2.3V9l4-2.3Z" />
+                      </svg>
+                    </label>
+
+                    <button class="icon-btn" id="inlineOpenModal" title="Open composer" aria-label="Open composer">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M3 17.3V21h3.7L18.8 8.9l-3.7-3.7L3 17.3Zm17.7-10.6a1 1 0 0 0 0-1.4l-2-2a1 1 0 0 0-1.4 0l-1.1 1.1 3.7 3.7 0.8-.8Z" />
+                      </svg>
+                    </button>
+
+                    <input type="file" id="inline-img" accept="image/x-png,image/gif,image/jpeg" />
+                    <input type="file" id="inline-video" accept="video/*" />
+                  </div>
+
+                  <div class="inline-right">
+                    <span id="inline-counter" class="counter">0/280</span>
+                    <button id="inlinePostBtn" class="primary-btn" disabled>Post</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="feedList">
+            <!-- Demo post -->
+            <div class="post-container demo-post" data-demo="true">
+              <div class="post-header">
+                <img class="post-profile-img" src="images/profile-img/elon.jpg" alt="Elon Musk">
+                <div class="post-info">
+                  <div class="post-title flex">
+                    <span class="verified">Elon Musk</span>
+                    <span class="muted">·</span>
+                    <div class="time"></div>
+                  </div>
+                  <div class="profile-name">@elonmusk</div>
+                </div>
+
+                <div class="post-actions">
+                  <button class="more-btn" aria-label="Post menu">⋯</button>
+                  <div class="more-menu">
+                    <button class="menu-item" data-action="copy">Copy text</button>
+                    <button class="menu-item" data-action="openThread">Open thread</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="post-body">
+                <pre class="caption-text">You wasted your time making twitter & I bought twitter 😎</pre>
+                <img class="post-content post-image" src="images/profile-img/elon.jpg" style="display:block"
+                  alt="content image">
+                <video class="post-content" src="" controls>Your browser doesn't support video tag.</video>
+              </div>
+
+              <div class="post-bottom flex">
+                <div class="post-icons">
+                  <button class="action-btn reply-btn" aria-label="Reply">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M20 15a4 4 0 0 1-4 4H9.4l-3.7 2.1A1 1 0 0 1 4 20.2V19a4 4 0 0 1-2-3.5V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z" />
+                    </svg>
+                  </button>
+                  <span class="count reply-count">0</span>
+                </div>
+
+                <div class="post-icons">
+                  <svg role="img" xmlns="http://www.w3.org/2000/svg" class="post-icon like-btn" fill="none"
+                    viewBox="0 0 24 24" aria-label="Like icon" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  <span class="count like-count">0</span>
+                </div>
+
+                <div class="post-icons">
+                  <svg role="img" xmlns="http://www.w3.org/2000/svg" class="post-icon share-btn" fill="none"
+                    viewBox="0 0 24 24" aria-label="Share icon" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                  </svg>
+                  <span class="count share-hint">share</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- THREAD VIEW -->
+        <section class="view" id="view-thread" data-view="thread">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Thread</div>
+              <button class="chip muted" data-route="home">Back</button>
+            </div>
+
+            <div id="threadParent" class="thread-parent"></div>
+
+            <div class="thread-replybox">
+              <div class="thread-replyhead">
+                <img id="threadAvatar" class="thread-avatar" src="images/profile-img/profile.jpg" alt="avatar" />
+                <textarea id="threadReplyText" maxlength="280" placeholder="Post your reply"></textarea>
+              </div>
+              <div class="thread-replybottom">
+                <span id="threadCounter" class="counter">0/280</span>
+                <button id="threadSend" class="primary-btn" disabled>Reply</button>
+              </div>
+            </div>
+
+            <div class="panel-subtitle">Replies</div>
+            <div id="threadReplies" class="list"></div>
+          </div>
+        </section>
+
+        <!-- PROFILE VIEW -->
+        <section class="view" id="view-profile" data-view="profile">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Profile</div>
+              <button class="chip" data-route="settings">Edit</button>
+            </div>
+
+            <div class="profile-card">
+              <img id="profileAvatar" class="profile-avatar" src="images/profile-img/profile.jpg" alt="avatar" />
+              <div class="profile-meta">
+                <div class="profile-name-line">
+                  <div id="profileName" class="profile-name">Asif Khan</div>
+                  <div id="profileHandle" class="profile-handle">@asifkhan</div>
+                </div>
+                <div id="profileBio" class="profile-bio">No bio yet.</div>
+              </div>
+            </div>
+
+            <div class="profile-tabs" role="tablist" aria-label="Profile tabs">
+              <button class="ptab active" data-ptab="posts">Posts</button>
+              <button class="ptab" data-ptab="replies">Replies</button>
+              <button class="ptab" data-ptab="media">Media</button>
+              <button class="ptab" data-ptab="likes">Likes</button>
+            </div>
+
+            <div id="profileList" class="list"></div>
+          </div>
+        </section>
+
+        <!-- SEARCH VIEW -->
+        <section class="view" id="view-search" data-view="search">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Search</div>
+            </div>
+
+            <div class="search-box">
+              <input id="searchInput" class="searchInput" type="text" placeholder="Search posts or @username..." />
+              <button id="searchBtn" class="chip">Search</button>
+              <button id="searchClear" class="chip muted">Clear</button>
+            </div>
+
+            <div class="panel-subtitle">Results</div>
+            <div id="searchResults" class="list"></div>
+          </div>
+        </section>
+
+        <!-- SETTINGS VIEW -->
+        <section class="view" id="view-settings" data-view="settings">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Settings</div>
+            </div>
+
+            <div class="settings-grid">
+              <div class="field">
+                <label>Name</label>
+                <input id="setName" type="text" placeholder="Your name" />
+              </div>
+              <div class="field">
+                <label>Username</label>
+                <input id="setUser" type="text" placeholder="@username" />
+              </div>
+              <div class="field full">
+                <label>Bio</label>
+                <textarea id="setBio" rows="3" placeholder="Write something..."></textarea>
+              </div>
+              <div class="field">
+                <label>Theme</label>
+                <div class="row">
+                  <button id="toggleTheme" class="chip">Toggle</button>
+                  <span class="hint">Dark / Light</span>
+                </div>
+              </div>
+              <div class="field">
+                <label>Data</label>
+                <div class="row">
+                  <button id="clearData" class="chip danger">Reset app</button>
+                  <span class="hint">clears posts/messages</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:1rem;">
+              <button id="saveProfile" class="chip">Save</button>
+              <button class="chip muted" data-route="profile">Back to profile</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- HISTORY VIEW -->
+        <section class="view" id="view-history" data-view="history">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">History</div>
+            </div>
+            <div class="panel-subtitle">Your activity</div>
+            <div id="historyList" class="list"></div>
+          </div>
+        </section>
+
+        <!-- MESSAGES VIEW -->
+        <section class="view" id="view-messages" data-view="messages">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Messages</div>
+            </div>
+
+            <div class="msg-wrap">
+              <div class="msg-thread" id="msgThread"></div>
+              <div class="msg-input">
+                <input id="msgText" type="text" placeholder="Write a message..." />
+                <button id="msgSend" class="chip">Send</button>
+              </div>
+              <div class="hint">Stored locally. (Simple demo)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- NOTIFICATIONS VIEW -->
+        <section class="view" id="view-notifications" data-view="notifications">
+          <div class="panel">
+            <div class="panel-header">
+              <div class="panel-title">Notifications</div>
+              <button id="markNotifRead" class="chip muted">Mark read</button>
+            </div>
+
+            <div class="panel-subtitle">Recent</div>
+            <div id="notifList" class="list"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right-col">
+        <form action="#" class="form-search" onsubmit="event.preventDefault();">
+          <div class="search flex-al-cen-jus-cen">
+            <input type="text" name="search" placeholder="Search" class="text-field" id="rightSearch"
+              autocomplete="off" />
+            <button type="submit" class="search-btn flex-al-cen-jus-cen" aria-label="Search" id="rightSearchBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <div class="trending-bar">
+          <h2 class="trending-title flex-al-cen-jus-cen"><span>~ #</span> <span>Top trendings</span> <img
+              src="images/icons_white/trend.png" class="trend-icon" alt="Trending icon"></h2>
+          <div class="trend-container flex column">
+            <div class="trend-post flex-al-cen-jus-cen">
+              <div class="trend-number">01</div>
+              <div class="trend-post-text">
+                <span class="trend-postman">Elon Musk</span>
+                <p class="trend-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+              </div>
+              <div class="trend-post-img">
+                <img src="images/trending-img/trend_pic_1.jpg" alt="" class="trend-img">
+              </div>
+            </div>
+            <div class="trend-post flex-al-cen-jus-cen">
+              <div class="trend-number">02</div>
+              <div class="trend-post-text">
+                <span class="trend-postman">SpaceX</span>
+                <p class="trend-text">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+              </div>
+              <div class="trend-post-img">
+                <img src="images/trending-img/trend_pic_2.jpg" alt="" class="trend-img">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="follow-bar">
+          <h2 class="follow-title">Who to follow</h2>
+          <div class="follow-info-container" id="whoToFollow"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Drawer (mobile menu) -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-inner">
+      <div class="drawer-head">
+        <div class="drawer-title">Menu</div>
+        <button class="chip muted" id="closeDrawer">Close</button>
+      </div>
+
+      <div class="drawer-profile">
+        <img id="drawerAvatar" src="images/profile-img/profile.jpg" alt="avatar" />
+        <div>
+          <div id="drawerName" class="drawer-name">Asif Khan</div>
+          <div id="drawerUser" class="drawer-user">@asifkhan</div>
+        </div>
+      </div>
+
+      <div class="drawer-links">
+        <button class="dlink" data-route="home">Home</button>
+        <button class="dlink" data-route="profile">Profile</button>
+        <button class="dlink" data-route="search">Search</button>
+        <button class="dlink" data-route="messages">Messages</button>
+        <button class="dlink" data-route="notifications">Notifications</button>
+        <button class="dlink" data-route="settings">Settings</button>
+        <button class="dlink" data-route="history">History</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Composer Modal -->
+  <div class="pop-up" id="composer" role="dialog" aria-modal="true" aria-label="Create a post">
+    <div class="pop-up-container">
+      <form action="#" class="post-form" id="post-form" onsubmit="event.preventDefault();">
+        <div class="pop-up-head">
+          <span class="pop-up-title">Post what is on your mind</span>
+          <button class="pop-up-cancel" id="closePost" type="reset" title="Cancel Post">&times;</button>
+        </div>
+
+        <div class="pop-up-body flex">
+          <div class="post-img-container">
+            <img src="images/profile-img/profile.jpg" class="pop-up-img" alt="profile" id="modalAvatar">
+          </div>
+
+          <div class="post-field">
+            <label for="caption">write your post (max 280)</label>
+            <textarea name="caption" id="caption" class="post-text" placeholder="Try Hello World!" maxlength="280"
+              spellcheck="false"></textarea>
+
+            <img src="" draggable="false" id="post-img" alt="preview image">
+            <video id="post-video" autoplay controls controlsList="nodownload">Your browser does not support the video tag.</video>
+
+            <input class="animation-content" type="file" id="img" name="img" accept="image/x-png,image/gif,image/jpeg"
+              onchange="readURL(this)">
+            <input class="animation-content" type="file" id="video" name="video" accept="video/*">
+          </div>
+        </div>
+
+        <div class="pop-up-bottom">
+          <div class="pop-icons flex">
+            <label class="icon-for-select" for="img"><img title="Add Image" class="pop-icon"
+                src="images/icons_white/img.png" alt="img icon"></label>
+            <label class="icon-for-select" for="video"><img title="Add Video" class="pop-icon"
+                src="images/icons_white/video.png" alt="video icon"></label>
+          </div>
+
+          <span id="char-counter" class="char-counter">0/280</span>
+
+          <button class="post" type="submit">post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Image Zoom Modal -->
+  <div class="img-modal" id="imgModal" aria-hidden="true">
+    <div class="img-modal-inner">
+      <button class="img-close" id="imgClose" aria-label="Close image">×</button>
+      <img id="imgModalEl" alt="Zoomed image" />
+    </div>
+  </div>
+
+  <!-- Mobile bottom bar -->
+  <div class="mobile-bar">
+    <button class="mbtn" data-route="home" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 3.2 2.6 12.1a1 1 0 0 0 .7 1.7H6v6a1 1 0 0 0 1 1h3.5v-5.2a1.5 1.5 0 0 1 3 0V21H17a1 1 0 0 0 1-1v-6h2.7a1 1 0 0 0 .7-1.7L12 3.2Z" />
+      </svg>
+    </button>
+
+    <button class="mbtn" data-route="search" aria-label="Search">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M10.5 3a7.5 7.5 0 1 0 4.6 13.4l4.1 4.1a1 1 0 0 0 1.4-1.4l-4.1-4.1A7.5 7.5 0 0 0 10.5 3Zm0 2a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11Z" />
+      </svg>
+    </button>
+
+    <button class="mbtn primary" id="mPost" aria-label="Post">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1Z" />
+      </svg>
+    </button>
+
+    <button class="mbtn" data-route="notifications" aria-label="Notifications">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 22a2.5 2.5 0 0 0 2.4-2H9.6A2.5 2.5 0 0 0 12 22Zm7-6.2V11a7 7 0 0 0-5-6.7V3a2 2 0 0 0-4 0v1.3A7 7 0 0 0 5 11v4.8l-2 2V19h18v-1.2l-2-2Z" />
+      </svg>
+    </button>
+
+    <button class="mbtn" data-route="profile" aria-label="Profile">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="scripts/index.js"></script>
+</body>
+
+</html>
+
+
+
