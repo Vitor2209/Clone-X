@@ -1,142 +1,163 @@
-# 🐦 X (Twitter) Clone — Front-end
+🐦 X (Twitter) Clone — Front-End
 
-A **front-end clone of X (formerly Twitter)** built **from scratch** using only **HTML, CSS, and Vanilla JavaScript**, focused on:
-- real platform-like features
-- consistent experience across **desktop and mobile**
-- clean and scalable code, ready for future backend integration
+A fully responsive X (formerly Twitter) clone, built from scratch using pure HTML, CSS, and Vanilla JavaScript.
+This project focuses on recreating core social media features while maintaining clean structure, performance, and scalability.
 
-👉 This is a **100% front-end project**, no frameworks used.
+📌 About the Project
 
----
+This project simulates a modern social media platform, inspired by X (Twitter), with a strong focus on:
 
-## 🚀 Demo
-> Open the project locally using **Live Server** (VS Code) for the best experience.
+Realistic user experience
 
----
+Clean and maintainable code
 
-## 🧠 Features
+Responsive design for all devices
 
-### 🏠 Feed
-- Create posts (text, image, or video)
-- Character counter (280)
-- New posts appear at the top of the feed
-- Like / unlike with counter
-- Share (copy post reference)
-- Threads (reply to posts)
-- **For You / Following** tabs
+Front-end logic without external frameworks
 
-### 👤 Profile
-- Profile view
-- Editable name, username, and bio
-- Tabs: Posts, Replies, Media, and Likes
-- Dynamic avatar
+It was built entirely with vanilla technologies, demonstrating a deep understanding of front-end fundamentals.
 
-### 🔍 Search
-- Search posts by text
-- Search users by `@username`
+🚀 Features
+🏠 Feed
 
-### 💬 Messages
-- Simple chat system
-- Messages stored in `localStorage`
+Create posts (text, image, or video)
 
-### 🔔 Notifications
-- Automatic notifications
-- Mark notifications as read
+Character counter (280 limit)
 
-### ⚙️ Settings
-- Edit profile
-- Toggle theme (Dark / Light)
-- Reset application data
+New posts appear instantly at the top
 
-### 📱 Mobile
-- Side drawer navigation
-- Fixed bottom navigation bar
-- All desktop features available on mobile
+Like and unlike system with counter
 
----
+Share (copy post link)
 
-## 🛠️ Technologies Used
+Threaded replies
 
-- **HTML5**
-- **CSS3**
-  - Flexbox
-  - Grid
-  - Media Queries
-- **JavaScript (Vanilla JS)**
-- **LocalStorage** for data persistence
-- No frameworks or external libraries
+"For You" and "Following" tabs
 
----
+👤 Profile
 
-## 📂 Project Structure
+Profile page with editable data
 
+Update name, username, and bio
+
+Tabs for:
+
+Posts
+
+Replies
+
+Media
+
+Likes
+
+🔍 Search
+
+Search posts by keywords
+
+Search users by username
+
+💬 Messages
+
+Simple chat interface
+
+Messages stored in LocalStorage
+
+🔔 Notifications
+
+Automatic notifications
+
+Ability to mark notifications as read
+
+⚙️ Settings
+
+Edit profile information
+
+Toggle between Light / Dark mode
+
+Reset application data
+
+📱 Mobile Experience
+
+Fully responsive design
+
+Mobile navigation drawer
+
+Bottom navigation bar
+
+Optimized for all screen sizes
+
+🛠 Technologies Used
+
+HTML5
+
+CSS3
+
+Flexbox & Grid
+
+JavaScript (Vanilla)
+
+LocalStorage API
+
+⚠️ No frameworks or libraries were used in this project.
+
+📂 Project Structure
 /
 ├── index.html
 ├── stylesheets/
-│ ├── general.css
-│ └── index.css
+│   ├── general.css
+│   └── index.css
 ├── scripts/
-│ └── index.js
+│   └── index.js
 └── images/
-├── icons_white/
-├── profile-img/
-└── trending-img/
+    ├── icons_white/
+    ├── profile-img/
+    └── trending-img/
 
-yaml
-Copiar código
+💾 Data Persistence
 
----
+The application stores the following data using LocalStorage:
 
-## 💾 Data Persistence
+Posts
 
-The following data is stored using **LocalStorage**:
-- Posts
-- Likes
-- Profile data
-- Messages
-- Notifications
+Likes
 
-> ⚠️ Note: Videos use `blobURL` and may not persist after page reload (front-end limitation).
+User profile data
 
----
+Messages
 
-## 📱 Responsiveness
+Notifications
 
-- Desktop
-- Tablet
-- Mobile
+⚠️ Note: Video files use blob URLs, which may not persist after a page reload.
 
-The application behaves **consistently across all screen sizes**.
+▶️ How to Run the Project
 
----
+Clone or download the repository
 
-## ▶️ How to Run
+Open the project folder
 
-1. Clone or download this repository
-2. Open the folder in **VS Code**
-3. Run with **Live Server**
-4. Enjoy 🎉
+Open index.html with Live Server (recommended)
 
----
+Start exploring the application 🎉
 
-## 🔮 Future Improvements
+🔮 Future Improvements
 
-- Authentication (login/logout)
-- Backend integration with Firebase or Supabase
-- Infinite scroll on the feed
-- Dynamic trends based on hashtags
-- Migration to React / Next.js
+User authentication (login / register)
 
----
+Backend integration (Firebase or Supabase)
 
-## 👨‍💻 Author
+Real-time updates
 
-Developed by **Vitor Dutra Melo**  
-Project created for learning, practice, and portfolio purposes.
+Infinite scrolling feed
 
----
+Improved accessibility (a11y)
 
-## 📄 License
+👨‍💻 Author
 
-This project is for **educational purposes only**.  
-It is not affiliated with or endorsed by **X (Twitter)**.
+Vitor Dutra Melo
+Front-End Developer
+Built for learning, experimentation, and portfolio presentation.
+
+📄 License
+
+This project is for educational purposes only.
+It is not affiliated with or endorsed by X (Twitter).
